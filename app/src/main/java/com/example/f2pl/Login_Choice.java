@@ -9,27 +9,27 @@ import android.widget.Button;
 
 public class Login_Choice extends AppCompatActivity implements View.OnClickListener{
 
-    Button btnLogin, btnMPIN;
+    Button login, mpin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_choice);
 
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnMPIN = (Button) findViewById(R.id.btnMPIN);
+        login = (Button) findViewById(R.id.btnLogin);
+        mpin = (Button) findViewById(R.id.btnMPIN);
 
-        btnLogin.setOnClickListener(this);
-        btnMPIN.setOnClickListener(this);
+        login.setOnClickListener(this);
+        mpin.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
         Intent i;
-        if(view.getId() == R.id.btnLogin) {
+        if(view.getId() == login.getId()) {
             i = new Intent(Login_Choice.this, Login_Activity.class);
             startActivity(i);
-        } else if(view.getId() == R.id.btnMPIN) {
+        } else if(view.getId() == mpin.getId()) {
             i = new Intent(Login_Choice.this, Login_Activity.class);
             startActivity(i);
         }
