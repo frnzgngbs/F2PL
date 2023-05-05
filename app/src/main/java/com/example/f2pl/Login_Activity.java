@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Login_Activity extends AppCompatActivity implements View.OnClickListener{
@@ -18,12 +17,11 @@ public class Login_Activity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        login = (Button) findViewById(R.id.Login);
-        signup = (Button) findViewById(R.id.Signup);
+        login =  findViewById(R.id.Login);
+        signup = findViewById(R.id.Signup);
 
         login.setOnClickListener(this);
         signup.setOnClickListener(this);
-
     }
 
     @Override
