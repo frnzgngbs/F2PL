@@ -1,11 +1,11 @@
 package com.example.f2pl;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Login_Choice extends AppCompatActivity implements View.OnClickListener{
 
@@ -30,7 +30,7 @@ public class Login_Choice extends AppCompatActivity implements View.OnClickListe
             i = new Intent(Login_Choice.this, Login_Activity.class);
             startActivity(i);
         } else if(view.getId() == mpin.getId()) {
-            i = new Intent(Login_Choice.this, Login_Activity.class);
+            i = new Intent(Login_Choice.this, MPIN_Activity.class);
             startActivity(i);
         }
     }
