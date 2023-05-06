@@ -45,7 +45,7 @@ public class Register_Activity extends AppCompatActivity implements View.OnClick
             startActivity(a);
         }else if(view.getId() == login.getId()) {
             Toast.makeText(this, "Redirecting to login page", Toast.LENGTH_SHORT).show();
-            a = new Intent(Register_Activity.this, Login_Choice.class);
+            a = new Intent(Register_Activity.this, Login_Activity.class);
             startActivity(a);
         } else if(view.getId() == create_acc.getId()) {
             Toast.makeText(this, "Create account button has been pressed", Toast.LENGTH_SHORT).show();
