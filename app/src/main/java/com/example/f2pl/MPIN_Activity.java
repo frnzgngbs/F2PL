@@ -19,12 +19,15 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
 
     ArrayList<String> numbers_list = new ArrayList<>();
     String passCode = "";
+    String MPIN = "1234";
     String num_01, num_02, num_03, num_04;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mpin);
         initializeComponenents();
+        savePassCode(MPIN);
+
     }
 
     private void initializeComponenents() {
