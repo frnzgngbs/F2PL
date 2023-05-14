@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 // on below line we are
                 // creating a new intent
-                Intent i = new Intent(MainActivity.this, Login_Choice.class);
+                Intent i = new Intent(MainActivity.this, LoginUser.class);
 
                 // on below line we are
                 // starting a new activity.

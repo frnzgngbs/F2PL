@@ -13,21 +13,18 @@
         android:theme="@style/Theme.F2PL"
         tools:targetApi="31">
         <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".LoginUser"
+            android:exported="false" />
+        <activity
             android:name=".MPIN_Activity"
-            android:exported="false"/>
-        <activity
-            android:name=".Register_Activity"
             android:exported="false" />
-        <activity
-            android:name=".Login_Choice"
-            android:exported="false" />
-        <activity
-            android:name=".Login_Activity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
