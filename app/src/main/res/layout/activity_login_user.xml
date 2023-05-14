@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="40dp"
-    android:background="@drawable/layout"
+    android:background="@drawable/applayout"
     tools:context=".LoginUser"
     android:orientation="vertical">
 
@@ -13,7 +13,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="315dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tfEmail"
@@ -41,7 +41,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textSize="18dp"
         android:text="Log-in" />
 
@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="17dp"
         android:gravity="center">
 
         <TextView

@@ -4,5 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="f2plorange">#FE684C</color>
     <color name="green">#00FF00</color>
-    <color name="f2plbackground">#FEFFEC</color>
+    <color name="f2plbackground">#FFFEFE</color>
 </resources>
