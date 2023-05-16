@@ -48,7 +48,7 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
         ansD.setOnClickListener(this);
         submit.setOnClickListener(this);
 
-        totalQuestion.setText("Total Question: " + totalQuestions);
+        displayQuestion();
         loadNewQuestion();
 
     }
@@ -67,6 +67,10 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
                 score++;
             }
             currentIndex++;
+            if(ctr_question > 10) {
+                --ctr_question;
+                displayQuestion();
+            } else displayQuestion();
             loadNewQuestion();
         } else {
             selectedAnswer = selectedChoice.getText().toString();
@@ -127,6 +131,8 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
             }
         }.start();
     }
-
+    void displayQuestion() {
+        totalQuestion.setText("Total Question: " + ctr_question + "/" +totalQuestions);
+    }
 
 }

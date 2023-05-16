@@ -50,6 +50,7 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
         submit.setOnClickListener(this);
 
         totalQuestion.setText("Total Question: " + totalQuestions);
+        displayQuestion();
         loadNewQuestion();
 
     }
@@ -68,6 +69,10 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
                 score++;
             }
             currentIndex++;
+            if(ctr_question > 10) {
+                --ctr_question;
+                displayQuestion();
+            } else displayQuestion();
             loadNewQuestion();
         }else {
             selectedAnswer = selectedChoice.getText().toString();
@@ -128,6 +133,8 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
             }
         }.start();
     }
-
+    void displayQuestion() {
+        totalQuestion.setText("Total Question: " + ctr_question + "/" +totalQuestions);
+    }
 
 }

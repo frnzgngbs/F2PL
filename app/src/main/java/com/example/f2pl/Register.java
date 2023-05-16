@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.ktx.Firebase;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
@@ -18,6 +22,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     Button btnCreate;
     TextView Signin;
     ImageView back;
+
+    DatabaseReference dbuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         Signin = findViewById(R.id.lblSignin);
         back = findViewById(R.id.backlogin);
 
-
         btnCreate.setOnClickListener(this);
         Signin.setOnClickListener(this);
         back.setOnClickListener(this);
@@ -42,9 +47,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View view) {
         Intent i;
         if(view.getId() == btnCreate.getId()) {
-            Toast.makeText(this, "Create account successfully", Toast.LENGTH_SHORT).show();
-            // PUT DATABASE HERE TO STORE THE INFORMATION.
-            // TEMPORARY TOAST TO SEE IF THE BUTTON WORKS.
+            String email, password, confirmpass, mpin;
+            email = String.valueOf(this.email.getText());
+            password = String.valueOf(this.password.getText());
+            confirmpass = String.valueOf(confirm_pass.getText());
+            mpin = String.valueOf(MPIN.getText());
+
+
         } else if(view.getId() == Signin.getId()) {
             i = new Intent(Register.this, LoginUser.class);
             startActivity(i);

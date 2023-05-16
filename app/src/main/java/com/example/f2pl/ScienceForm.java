@@ -50,7 +50,7 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
         ansD.setOnClickListener(this);
         submit.setOnClickListener(this);
 
-        totalQuestion.setText("Total Question: " + totalQuestions);
+        displayQuestion();
         loadNewQuestion();
 
     }
@@ -69,6 +69,10 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
                 score++;
             }
             currentIndex++;
+            if(ctr_question > 10) {
+                --ctr_question;
+                displayQuestion();
+            } else displayQuestion();
             loadNewQuestion();
         } else {
             selectedAnswer = selectedChoice.getText().toString();
@@ -130,5 +134,8 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
         }.start();
     }
 
+    void displayQuestion() {
+        totalQuestion.setText("Total Question: " + ctr_question + "/" +totalQuestions);
+    }
 
 }
