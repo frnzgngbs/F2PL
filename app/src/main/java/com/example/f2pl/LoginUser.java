@@ -38,9 +38,10 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
         Intent i;
         if(view.getId() == btnLogin.getId()) {
-            Toast.makeText(this, "Login has been clicked", Toast.LENGTH_SHORT).show();
-        } else if(view.getId() == btnMPIN.getId()) {
             i = new Intent(LoginUser.this, MainPage.class);
+            startActivity(i);
+        } else if(view.getId() == btnMPIN.getId()) {
+            i = new Intent(LoginUser.this, MPIN_Activity.class);
             startActivity(i);
         }else if(view.getId() == Signup.getId()) {
             i = new Intent(LoginUser.this, Register.class);

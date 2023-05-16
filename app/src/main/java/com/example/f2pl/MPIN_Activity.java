@@ -136,7 +136,7 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
 
     private void matchPassCode() {
         if(getPassCode().equals(passCode)){
-            startActivity(new Intent(this, LoginUser.class));
+            startActivity(new Intent(this, MainPage.class));
         }else{
             Toast.makeText(this,"MPIN is incorrect", Toast.LENGTH_SHORT).show();
         }

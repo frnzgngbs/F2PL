@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="40dp"
     android:orientation="vertical"
-    android:background="@drawable/layout"
+    android:background="@drawable/registerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register">
@@ -92,8 +92,9 @@
             android:id="@+id/MPIN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="4"
             android:hint="MPIN"
-            android:inputType="textPassword"/>
+            android:inputType="numberPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

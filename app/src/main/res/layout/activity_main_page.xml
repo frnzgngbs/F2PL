@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mainlayout"
+    android:background="@color/f2plbackground"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <RelativeLayout
             android:layout_marginTop="32dp"
             android:layout_width="match_parent"
@@ -20,13 +19,24 @@
             android:layout_marginRight="20dp">
 
             <TextView
-                android:id="@+id/txtdashboard"
+                android:id="@+id/txtMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="40sp"
-                android:textColor="#FFF"
-                android:layout_marginLeft="75dp"
-                android:text="Main Menu"/>
+                android:textSize="33sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="90dp"
+                android:text="Main "/>
+
+            <TextView
+                android:id="@+id/txtMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="33sp"
+                android:textColor="@color/f2plorange"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="180dp"
+                android:text="Menu"/>
         </RelativeLayout>
 
         <GridLayout
@@ -38,10 +48,12 @@
             android:alignmentMode="alignMargins">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
+                android:background="@drawable/mainlayout"
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp">
@@ -54,14 +66,13 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:src="@drawable/icon"
+                        android:src="@drawable/avatar"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="1dp"
                         android:textColor="#000"
                         android:text="Profile"/>
 
@@ -71,6 +82,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardExchange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -88,21 +100,58 @@
 
                     <ImageView
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/coins"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:textColor="#000"
-                        android:text="Mental Exercises"/>
+                        android:text="Exchange"/>
 
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
+        </GridLayout>
+        <RelativeLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:id="@+id/QuizCa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="33sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="68dp"
+                android:text="Quiz Ca"/>
+
+            <TextView
+                android:id="@+id/tegory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="33sp"
+                android:textColor="@color/f2plorange"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginLeft="196dp"
+                android:text="tegory"/>
+        </RelativeLayout>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="3"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:alignmentMode="alignMargins">
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardScience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -119,21 +168,22 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:src="@drawable/science"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:textColor="#000"
-                        android:text="Physical Exercises"/>
+                        android:text="Science"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardSports"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -150,21 +200,22 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:src="@drawable/sport"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:textColor="#000"
-                        android:text="Meditation"/>
+                        android:text="Sports"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardGaming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -182,20 +233,21 @@
 
                     <ImageView
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/gaming"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:textColor="#000"
-                        android:text="Fitness Tracker"/>
+                        android:text="Gaming"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -213,14 +265,76 @@
 
                     <ImageView
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/history"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
                         android:textColor="#000"
                         android:text="History"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/programmin"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="Programming"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardMath"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/math"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="Mathematics"/>
 
                 </LinearLayout>
 
