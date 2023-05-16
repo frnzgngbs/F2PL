@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
 
     Button ansA, ansB, ansC, ansD, submit;
     TextView totalQuestion, numberQuestion, timer;
-
+    ImageView back;
     private int score = 0;
     private int ctr_question = 1;
     private int totalQuestions;
@@ -60,6 +61,7 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
         ansB.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
         ansC.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
         ansD.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
+
 
         Button selectedChoice = (Button) view;
         if(selectedChoice.getId() == R.id.submitanswer) {

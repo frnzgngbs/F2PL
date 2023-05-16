@@ -11,6 +11,8 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 public class GamingForm extends AppCompatActivity implements View.OnClickListener{
 
     Button ansA, ansB, ansC, ansD, submit;
@@ -26,7 +28,7 @@ public class GamingForm extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         startTimer();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_science_form);
+        setContentView(R.layout.activity_gaming_form);
 
         totalQuestions = game.question.length;
 

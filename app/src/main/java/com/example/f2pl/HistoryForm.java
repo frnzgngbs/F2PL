@@ -30,7 +30,7 @@ public class HistoryForm extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         startTimer();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_science_form);
+        setContentView(R.layout.activity_history_form);
 
         totalQuestions = history.question.length;
 

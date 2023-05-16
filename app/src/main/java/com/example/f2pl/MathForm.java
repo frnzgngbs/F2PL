@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class ProgForm extends AppCompatActivity implements View.OnClickListener{
+public class MathForm extends AppCompatActivity implements View.OnClickListener{
 
     Button ansA, ansB, ansC, ansD, submit;
     TextView totalQuestion, numberQuestion, timer;
@@ -26,14 +26,14 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
     private int totalQuestions;
     private int currentIndex = 0;
     private String selectedAnswer = "";
-    ProgQuestions prog = new ProgQuestions();
+    MathQuestion math = new MathQuestion();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startTimer();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prog_form);
+        setContentView(R.layout.activity_math_form);
 
-        totalQuestions = prog.question.length;
+        totalQuestions = math.question.length;
 
         totalQuestion = findViewById(R.id.totalQuestion);
         numberQuestion = findViewById(R.id.question);
@@ -43,7 +43,6 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
         ansD = findViewById(R.id.D);
         submit = findViewById(R.id.submitanswer);
         timer = findViewById(R.id.timer);
-
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
         ansC.setOnClickListener(this);
@@ -65,12 +64,12 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
         Button selectedChoice = (Button) view;
 
         if(selectedChoice.getId() == R.id.submitanswer) {
-            if(selectedAnswer.equals(prog.answer[currentIndex])) {
+            if(selectedAnswer.equals(math.answer[currentIndex])) {
                 score++;
             }
             currentIndex++;
             loadNewQuestion();
-        } else {
+        }else {
             selectedAnswer = selectedChoice.getText().toString();
             selectedChoice.setBackgroundColor(Color.DKGRAY);
         }
@@ -82,11 +81,11 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
             finishQuiz();
             return;
         }
-        numberQuestion.setText(ctr_question++ + "." +prog.question[currentIndex]);
-        ansA.setText(prog.choices[currentIndex][0]);
-        ansB.setText(prog.choices[currentIndex][1]);
-        ansC.setText(prog.choices[currentIndex][2]);
-        ansD.setText(prog.choices[currentIndex][3]);
+        numberQuestion.setText(ctr_question++ + "." +math.question[currentIndex]);
+        ansA.setText(math.choices[currentIndex][0]);
+        ansB.setText(math.choices[currentIndex][1]);
+        ansC.setText(math.choices[currentIndex][2]);
+        ansD.setText(math.choices[currentIndex][3]);
     }
 
 
@@ -107,7 +106,7 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
     }
 
     void quitQuiz() {
-        Intent i = new Intent(ProgForm.this, MainPage.class);
+        Intent i = new Intent(MathForm.this, MainPage.class);
         startActivity(i);
     }
 

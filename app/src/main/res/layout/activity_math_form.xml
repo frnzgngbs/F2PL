@@ -6,8 +6,7 @@
     android:padding="37dp"
     android:layout_height="match_parent"
     android:background="@drawable/layout"
-    tools:context=".GamingForm">
-
+    tools:context=".MathForm">
 
     <TextView
         android:layout_width="wrap_content"

@@ -38,8 +38,12 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         Intent i;
-        if (view.getId() == ctgProfile.getId()) Toast.makeText(this, "User Profile", Toast.LENGTH_SHORT).show();
-        else if (view.getId() == ctgExchange.getId()) Toast.makeText(this, "Exchange coins", Toast.LENGTH_SHORT).show();
+        if (view.getId() == ctgProfile.getId()) {
+            Toast.makeText(this, "User Profile", Toast.LENGTH_SHORT).show();
+        }
+        else if (view.getId() == ctgExchange.getId()) {
+            Toast.makeText(this, "Exchange coins", Toast.LENGTH_SHORT).show();
+        }
         else if (view.getId() == ctgScience.getId()) {
             i = new Intent(MainPage.this, ScienceForm.class);
             startActivity(i);
@@ -65,7 +69,10 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
             startActivity(i);
             Toast.makeText(this, "Programming category", Toast.LENGTH_SHORT).show();
         }
-        else if(view.getId() == ctgMath.getId()) Toast.makeText(this,
-                "Mathematics category", Toast.LENGTH_SHORT).show();
+        else if(view.getId() == ctgMath.getId()){
+            i = new Intent(MainPage.this, MathForm.class);
+            startActivity(i);
+            Toast.makeText(this, "Mathematics category", Toast.LENGTH_SHORT).show();
+        }
     }
 }
