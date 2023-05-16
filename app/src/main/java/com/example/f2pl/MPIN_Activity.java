@@ -140,6 +140,11 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
         }else{
             Toast.makeText(this,"MPIN is incorrect", Toast.LENGTH_SHORT).show();
         }
+        numbers_list.clear();
+        view_01.setBackgroundResource(R.drawable.bg_view_grey_oval);
+        view_02.setBackgroundResource(R.drawable.bg_view_grey_oval);
+        view_03.setBackgroundResource(R.drawable.bg_view_grey_oval);
+        view_04.setBackgroundResource(R.drawable.bg_view_grey_oval);
     }
 
     private SharedPreferences.Editor savePassCode(String passCode){
