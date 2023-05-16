@@ -45,7 +45,11 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
             startActivity(i);
             Toast.makeText(this, "Science category", Toast.LENGTH_SHORT).show();
         }
-        else if (view.getId() == ctgSports.getId()) Toast.makeText(this, "Sports category", Toast.LENGTH_SHORT).show();
+        else if (view.getId() == ctgSports.getId()) {
+            i = new Intent(MainPage.this, SportsForm.class);
+            startActivity(i);
+            Toast.makeText(this, "Sports category", Toast.LENGTH_SHORT).show();
+        }
         else if(view.getId() == ctgGaming.getId()) Toast.makeText(this, "Gaming category", Toast.LENGTH_SHORT).show();
         else if (view.getId() == ctgHistory.getId()) Toast.makeText(this, "History category", Toast.LENGTH_SHORT).show();
         else if (view.getId() == ctgProg.getId()) Toast.makeText(this, "Programming category", Toast.LENGTH_SHORT).show();

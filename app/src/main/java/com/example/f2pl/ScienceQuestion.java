@@ -30,7 +30,7 @@ public class ScienceQuestion {
 
     public String choices[][] = {
             {"Go", "Ag", "Au", "Go"},
-            {"Isaac Newton", "Albert Einstein", "Marie Curie", "Galileo", "Galilei"},
+            {"Isaac Newton", "Albert Einstein", "Marie Curie", "Galileo Galilei"},
             {"Mars", "Venus", "Jupiter", "Saturn"},
             {"Respiration", "Photosynthesis", "Metabolism", "Digestion"},
             {"Molecule", "Atom", "Cell", "Gene"},

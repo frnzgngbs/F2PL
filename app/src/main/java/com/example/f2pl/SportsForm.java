@@ -11,11 +11,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Locale;
-
-public class ScienceForm extends AppCompatActivity implements View.OnClickListener{
+public class SportsForm extends AppCompatActivity implements View.OnClickListener{
 
     Button ansA, ansB, ansC, ansD, submit;
     TextView totalQuestion, numberQuestion, timer;
@@ -25,14 +21,14 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
     private int totalQuestions;
     private int currentIndex = 0;
     private String selectedAnswer = "";
-    ScienceQuestion science = new ScienceQuestion();
+    SportsQuestion sports = new SportsQuestion();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startTimer();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_science_form);
 
-        totalQuestions = science.question.length;
+        totalQuestions = sports.sports_question.length;
 
         totalQuestion = findViewById(R.id.totalQuestion);
         numberQuestion = findViewById(R.id.question);
@@ -63,7 +59,7 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
 
         Button selectedChoice = (Button) view;
         if(selectedChoice.getId() == R.id.submitanswer) {
-            if(selectedAnswer.equals(science.answer[currentIndex])) {
+            if(selectedAnswer.equals(sports.sports_answer[currentIndex])) {
                 score++;
             }
             currentIndex++;
@@ -80,32 +76,32 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
             finishQuiz();
             return;
         }
-        numberQuestion.setText(ctr_question++ + "." +science.question[currentIndex]);
-        ansA.setText(science.choices[currentIndex][0]);
-        ansB.setText(science.choices[currentIndex][1]);
-        ansC.setText(science.choices[currentIndex][2]);
-        ansD.setText(science.choices[currentIndex][3]);
+        numberQuestion.setText(ctr_question++ + "." +sports.sports_question[currentIndex]);
+        ansA.setText(sports.sports_choices[currentIndex][0]);
+        ansB.setText(sports.sports_choices[currentIndex][1]);
+        ansC.setText(sports.sports_choices[currentIndex][2]);
+        ansD.setText(sports.sports_choices[currentIndex][3]);
     }
 
 
     void finishQuiz() {
         String passStatus = "";
-            if(score > 6) {
-                passStatus = "Passed";
-            } else {
-                passStatus = "Failed";
-            }
+        if(score > 6) {
+            passStatus = "Passed";
+        } else {
+            passStatus = "Failed";
+        }
 
-            new AlertDialog.Builder(this)
-                    .setTitle(passStatus)
-                    .setMessage("Score: " + score + " out of " + totalQuestions)
-                    .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
-                    .setCancelable(false)
-                    .show();
+        new AlertDialog.Builder(this)
+                .setTitle(passStatus)
+                .setMessage("Score: " + score + " out of " + totalQuestions)
+                .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
+                .setCancelable(false)
+                .show();
     }
 
     void quitQuiz() {
-        Intent i = new Intent(ScienceForm.this, MainPage.class);
+        Intent i = new Intent(SportsForm.this, MainPage.class);
         startActivity(i);
     }
 
