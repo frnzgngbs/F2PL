@@ -26,6 +26,8 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
     private int totalQuestions;
     private int currentIndex = 0;
     private String selectedAnswer = "";
+    private int numberofHint = 1;
+    ImageView hint;
     MathQuestion math = new MathQuestion();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,14 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
         ansD = findViewById(R.id.D);
         submit = findViewById(R.id.submitanswer);
         timer = findViewById(R.id.timer);
+        hint = findViewById(R.id.hint);
+
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
         ansC.setOnClickListener(this);
         ansD.setOnClickListener(this);
         submit.setOnClickListener(this);
+        hint.setOnClickListener(this);
 
         totalQuestion.setText("Total Question: " + totalQuestions);
         displayQuestion();
@@ -62,21 +67,31 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
         ansC.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
         ansD.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
 
-        Button selectedChoice = (Button) view;
-
-        if(selectedChoice.getId() == R.id.submitanswer) {
-            if(selectedAnswer.equals(math.answer[currentIndex])) {
-                score++;
+        if (view.getId() == hint.getId()) {
+            if (numberofHint == 1) {
+                useHint();
+                numberofHint--;
+            } else {
+                Toast.makeText(this, "No more available hints.", Toast.LENGTH_SHORT).show();
             }
-            currentIndex++;
-            if(ctr_question > 10) {
-                --ctr_question;
-                displayQuestion();
-            } else displayQuestion();
-            loadNewQuestion();
-        }else {
-            selectedAnswer = selectedChoice.getText().toString();
-            selectedChoice.setBackgroundColor(Color.DKGRAY);
+        } else {
+            Button selectedChoice = (Button) view;
+            if (selectedChoice.getId() == R.id.submitanswer) {
+                if (selectedAnswer.equals(math.answer[currentIndex])) {
+                    score++;
+                }
+                if (ctr_question > 10) {
+                    --ctr_question;
+                    displayQuestion();
+                } else {
+                    displayQuestion();
+                }
+                currentIndex++;
+                loadNewQuestion();
+            } else {
+                selectedAnswer = selectedChoice.getText().toString();
+                selectedChoice.setBackgroundColor(Color.DKGRAY);
+            }
         }
     }
 
@@ -135,6 +150,19 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
     }
     void displayQuestion() {
         totalQuestion.setText("Total Question: " + ctr_question + "/" +totalQuestions);
+    }
+
+    public void useHint() {
+        String ans = math.answer[currentIndex];
+        if (ansA.getText().toString().equals(ans)) {
+            ansA.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        } else if (ansB.getText().toString().equals(ans)) {
+            ansB.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        } else if (ansC.getText().toString().equals(ans)) {
+            ansC.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        } else if (ansD.getText().toString().equals(ans)) {
+            ansD.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        }
     }
 
 }

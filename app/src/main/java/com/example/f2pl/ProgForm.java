@@ -26,6 +26,8 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
     private int totalQuestions;
     private int currentIndex = 0;
     private String selectedAnswer = "";
+    ImageView hint;
+    private int numberofHint = 1;
     ProgQuestions prog = new ProgQuestions();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +45,15 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
         ansD = findViewById(R.id.D);
         submit = findViewById(R.id.submitanswer);
         timer = findViewById(R.id.timer);
+        hint = findViewById(R.id.hint);
+
 
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
         ansC.setOnClickListener(this);
         ansD.setOnClickListener(this);
         submit.setOnClickListener(this);
+        hint.setOnClickListener(this);
 
         displayQuestion();
         loadNewQuestion();
@@ -57,26 +62,32 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        ansA.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
-        ansB.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
-        ansC.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
-        ansD.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
 
-        Button selectedChoice = (Button) view;
-
-        if(selectedChoice.getId() == R.id.submitanswer) {
-            if(selectedAnswer.equals(prog.answer[currentIndex])) {
-                score++;
+        if (view.getId() == hint.getId()) {
+            if (numberofHint == 1) {
+                useHint();
+                numberofHint--;
+            } else {
+                Toast.makeText(this, "No more available hints.", Toast.LENGTH_SHORT).show();
             }
-            currentIndex++;
-            if(ctr_question > 10) {
-                --ctr_question;
-                displayQuestion();
-            } else displayQuestion();
-            loadNewQuestion();
         } else {
-            selectedAnswer = selectedChoice.getText().toString();
-            selectedChoice.setBackgroundColor(Color.DKGRAY);
+            Button selectedChoice = (Button) view;
+            if (selectedChoice.getId() == R.id.submitanswer) {
+                if (selectedAnswer.equals(prog.answer[currentIndex])) {
+                    score++;
+                }
+                if (ctr_question > 10) {
+                    --ctr_question;
+                    displayQuestion();
+                } else {
+                    displayQuestion();
+                }
+                currentIndex++;
+                loadNewQuestion();
+            } else {
+                selectedAnswer = selectedChoice.getText().toString();
+                selectedChoice.setBackgroundColor(Color.DKGRAY);
+            }
         }
     }
 
@@ -135,6 +146,19 @@ public class ProgForm extends AppCompatActivity implements View.OnClickListener{
     }
     void displayQuestion() {
         totalQuestion.setText("Total Question: " + ctr_question + "/" +totalQuestions);
+    }
+
+    public void useHint() {
+        String ans = prog.answer[currentIndex];
+        if (ansA.getText().toString().equals(ans)) {
+            ansA.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        } else if (ansB.getText().toString().equals(ans)) {
+            ansB.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        } else if (ansC.getText().toString().equals(ans)) {
+            ansC.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        } else if (ansD.getText().toString().equals(ans)) {
+            ansD.setBackgroundColor(ContextCompat.getColor(this, R.color.green));
+        }
     }
 
 }
