@@ -8,6 +8,7 @@
     android:background="@drawable/layout"
     tools:context=".MathForm">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

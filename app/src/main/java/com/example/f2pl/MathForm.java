@@ -19,7 +19,7 @@ import java.util.Locale;
 public class MathForm extends AppCompatActivity implements View.OnClickListener{
 
     Button ansA, ansB, ansC, ansD, submit;
-    TextView totalQuestion, numberQuestion, timer;
+     TextView totalQuestion, numberQuestion, timer;
 
     private int score = 0;
     private int ctr_question = 1;
