@@ -55,8 +55,14 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
             startActivity(i);
             Toast.makeText(this, "Gaming category", Toast.LENGTH_SHORT).show();
         }
-        else if (view.getId() == ctgHistory.getId()) Toast.makeText(this, "History category", Toast.LENGTH_SHORT).show();
-        else if (view.getId() == ctgProg.getId()) Toast.makeText(this, "Programming category", Toast.LENGTH_SHORT).show();
+        else if (view.getId() == ctgHistory.getId()) {
+            i = new Intent(MainPage.this, HistoryForm.class);
+            startActivity(i);
+            Toast.makeText(this, "History category", Toast.LENGTH_SHORT).show();
+        }
+        else if (view.getId() == ctgProg.getId()) {
+            Toast.makeText(this, "Programming category", Toast.LENGTH_SHORT).show();
+        }
         else if(view.getId() == ctgMath.getId()) Toast.makeText(this, "Mathematics category", Toast.LENGTH_SHORT).show();
     }
 }
