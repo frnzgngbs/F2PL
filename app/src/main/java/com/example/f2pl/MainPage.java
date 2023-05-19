@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class MainPage extends AppCompatActivity implements View.OnClickListener {
 
-    CardView ctgProfile, ctgExchange, ctgScience, ctgSports, ctgGaming, ctgHistory, ctgProg, ctgMath;
+    CardView ctgProfile, ctgExchange, ctgScience, ctgSports, ctgGaming, ctgHistory, ctgProg, ctgMath, ctgLocation, ctgCalendar, ctgContacts, ctgTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,10 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgHistory = findViewById(R.id.cardHistory);
         ctgProg = findViewById(R.id.cardProg);
         ctgMath = findViewById(R.id.cardMath);
+        ctgLocation = findViewById(R.id.cardlocation);
+        ctgCalendar = findViewById(R.id.cardcalender);
+        ctgContacts = findViewById(R.id.cardcontact);
+        ctgTheme = findViewById(R.id.theme);
 
         ctgProfile.setOnClickListener(this);
         ctgExchange.setOnClickListener(this);
@@ -41,6 +45,11 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgHistory.setOnClickListener(this);
         ctgProg.setOnClickListener(this);
         ctgMath.setOnClickListener(this);
+        ctgLocation.setOnClickListener(this);
+        ctgCalendar.setOnClickListener(this);
+        ctgContacts.setOnClickListener(this);
+        ctgTheme.setOnClickListener(this);
+
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("notification", "notification", NotificationManager.IMPORTANCE_DEFAULT);
@@ -86,6 +95,14 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
             startActivity(i);
             notifyUser();
             Toast.makeText(this, "Mathematics category", Toast.LENGTH_SHORT).show();
+        }else if(ctgTheme.getId() == view.getId()) {
+            Toast.makeText(this, "Theme has been clicked", Toast.LENGTH_SHORT).show();
+        } else if(ctgContacts.getId() == view.getId()) {
+            Toast.makeText(this, "Contacts has been clicked", Toast.LENGTH_SHORT).show();
+        } else if(ctgCalendar.getId() == view.getId()) {
+            Toast.makeText(this, "Calendar has been clicked", Toast.LENGTH_SHORT).show();
+        } else if(ctgLocation.getId() == view.getId()) {
+            Toast.makeText(this, "Location has been clicked", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -7,7 +7,10 @@
     android:background="@color/f2plbackground"
     tools:context=".MainActivity">
 
+
+
     <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -18,25 +21,30 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
 
-            <TextView
-                android:id="@+id/txtMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="33sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins_bold"
-                android:layout_marginLeft="90dp"
-                android:text="Main "/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/txtMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="33sp"
-                android:textColor="@color/f2plorange"
-                android:fontFamily="@font/poppins_bold"
-                android:layout_marginLeft="180dp"
-                android:text="Menu"/>
+                <TextView
+                    android:id="@+id/txtMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="33sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Main "/>
+
+                <TextView
+                    android:id="@+id/txtMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="33sp"
+                    android:textColor="@color/f2plorange"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Menu"/>
+
+            </LinearLayout>
         </RelativeLayout>
 
         <GridLayout
@@ -114,33 +122,171 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:src="@drawable/theme"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="Theme"/>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardcalender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:background="@drawable/mainlayout"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:src="@drawable/calendar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="Calendar"/>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardcontact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:background="@drawable/mainlayout"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:src="@drawable/contact"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="Profile"/>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardlocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:background="@drawable/mainlayout"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:src="@drawable/location"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:text="Location"/>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </GridLayout>
         <RelativeLayout
             android:layout_marginTop="32dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/QuizCa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="33sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins_bold"
-                android:layout_marginLeft="68dp"
-                android:text="Quiz Ca"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/QuizCa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="33sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Quiz Ca"/>
 
-            <TextView
-                android:id="@+id/tegory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="33sp"
-                android:textColor="@color/f2plorange"
-                android:fontFamily="@font/poppins_bold"
-                android:layout_marginLeft="196dp"
-                android:text="tegory"/>
+                <TextView
+                    android:id="@+id/tegory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="33sp"
+                    android:textColor="@color/f2plorange"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="tegory"/>
+            </LinearLayout>
+
         </RelativeLayout>
         <GridLayout
             android:layout_width="match_parent"

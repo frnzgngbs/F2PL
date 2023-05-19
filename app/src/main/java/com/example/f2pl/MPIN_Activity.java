@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 
 public class MPIN_Activity extends AppCompatActivity implements View.OnClickListener {
@@ -135,17 +137,29 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
     }
 
     private void matchPassCode() {
-        if(getPassCode().equals(passCode)){
-            startActivity(new Intent(this, MainPage.class));
-        }else{
-            Toast.makeText(this,"MPIN is incorrect", Toast.LENGTH_SHORT).show();
-        }
-        numbers_list.clear();
-        view_01.setBackgroundResource(R.drawable.bg_view_grey_oval);
-        view_02.setBackgroundResource(R.drawable.bg_view_grey_oval);
-        view_03.setBackgroundResource(R.drawable.bg_view_grey_oval);
-        view_04.setBackgroundResource(R.drawable.bg_view_grey_oval);
+        String enteredMPIN = passCode.trim();  // Trim the entered passcode to remove leading/trailing whitespaces
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("user")
+                .whereEqualTo("mpin", enteredMPIN)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (!queryDocumentSnapshots.isEmpty()) {
+                        // MPIN matches a user in the database
+                        startActivity(new Intent(this, MainPage.class));
+                        clearMPIN();
+                    } else {
+                        Toast.makeText(this, "MPIN is incorrect", Toast.LENGTH_SHORT).show();
+                        clearMPIN();
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to retrieve user data", Toast.LENGTH_SHORT).show();
+                    clearMPIN();
+                });
     }
+
 
     private SharedPreferences.Editor savePassCode(String passCode){
         SharedPreferences preferences = getSharedPreferences("passcode_pref", Context.MODE_PRIVATE);
@@ -159,5 +173,13 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
     private String getPassCode(){
         SharedPreferences preferences = getSharedPreferences("passcode_pref", Context.MODE_PRIVATE);
         return preferences.getString("passcode", "");
+    }
+
+    private void clearMPIN() {
+        numbers_list.clear();
+        view_01.setBackgroundResource(R.drawable.bg_view_grey_oval);
+        view_02.setBackgroundResource(R.drawable.bg_view_grey_oval);
+        view_03.setBackgroundResource(R.drawable.bg_view_grey_oval);
+        view_04.setBackgroundResource(R.drawable.bg_view_grey_oval);
     }
 }

@@ -1,10 +1,12 @@
 package com.example.f2pl;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,9 +14,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.ktx.Firebase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
@@ -23,7 +37,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     TextView Signin;
     ImageView back;
 
-    DatabaseReference dbuser;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +61,56 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         Intent i;
+        String user_email =email.getText().toString();
+        String user_password = password.getText().toString();
+        String mpin = MPIN.getText().toString();
         if(view.getId() == btnCreate.getId()) {
-            String email, password, confirmpass, mpin;
-            email = String.valueOf(this.email.getText());
-            password = String.valueOf(this.password.getText());
-            confirmpass = String.valueOf(confirm_pass.getText());
-            mpin = String.valueOf(MPIN.getText());
 
 
+            if(!user_password.equals(confirm_pass.getText().toString())) {
+                Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            mAuth.createUserWithEmailAndPassword(user_email, user_password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(this, "Created Successfully", Toast.LENGTH_SHORT).show();
+
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                            String userId = currentUser.getUid();
+
+                            User user = new User(userId,user_email, user_password, mpin,0,0,0,0,0,0, 0);
+                            db.collection("user")
+                                    .add(user)
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            Toast.makeText(Register.this, "Insert in Database successfully", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                            // Registration success, update UI accordingly// You can retrieve the user ID with user.getUid()
+
+                            // You can also sign in the user immediately after registration
+                            // by calling mAuth.signInWithEmailAndPassword(email, password) here
+                            mAuth.signInWithEmailAndPassword(user_email, user_password)
+                                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            startActivity(new Intent(Register.this, MainPage.class));
+                                            FirebaseUser signedInUser = mAuth.getCurrentUser();
+                                        }
+                                    });
+
+                            // TODO: Add your desired logic after successful registration
+                        } else {
+                            String errorMessage = task.getException().getMessage();
+                            Log.e("RegistrationError", errorMessage); // Log the error message for debugging
+                            Toast.makeText(this, "Creation failed", Toast.LENGTH_SHORT).show();
+                            // Registration failed, display a message to the user
+                        }
+                    });
         } else if(view.getId() == Signin.getId()) {
             i = new Intent(Register.this, LoginUser.class);
             startActivity(i);
