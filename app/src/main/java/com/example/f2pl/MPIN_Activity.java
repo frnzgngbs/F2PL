@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -140,7 +142,9 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
         String enteredMPIN = passCode.trim();  // Trim the entered passcode to remove leading/trailing whitespaces
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        
         db.collection("user")
                 .whereEqualTo("mpin", enteredMPIN)
                 .get()

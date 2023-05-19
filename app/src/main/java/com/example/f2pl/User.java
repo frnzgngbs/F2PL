@@ -1,7 +1,6 @@
 package com.example.f2pl;
 
 public class User {
-    private String uid;
     private String email;
     private String password;
     private String MPIN;
@@ -13,8 +12,7 @@ public class User {
     private int math_score;
     private int coins;
 
-    public User(String uid, String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins) {
-        this.uid = uid;
+    public User(String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins) {
         this.email = email;
         this.password = password;
         this.MPIN = MPIN;
@@ -25,14 +23,6 @@ public class User {
         this.prog_score = prog_score;
         this.math_score = math_score;
         this.coins = coins;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
     }
 
     public int getCoins() {

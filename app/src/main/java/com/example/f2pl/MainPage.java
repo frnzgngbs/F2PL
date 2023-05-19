@@ -13,12 +13,19 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainPage extends AppCompatActivity implements View.OnClickListener {
 
     CardView ctgProfile, ctgExchange, ctgScience, ctgSports, ctgGaming, ctgHistory, ctgProg, ctgMath, ctgLocation, ctgCalendar, ctgContacts, ctgTheme;
-
+    TextView profile;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgCalendar = findViewById(R.id.cardcalender);
         ctgContacts = findViewById(R.id.cardcontact);
         ctgTheme = findViewById(R.id.theme);
+        profile = findViewById(R.id.profile);
 
         ctgProfile.setOnClickListener(this);
         ctgExchange.setOnClickListener(this);
@@ -50,12 +58,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgContacts.setOnClickListener(this);
         ctgTheme.setOnClickListener(this);
 
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("notification", "notification", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
+        fetchProfileText();
     }
 
     @Override
@@ -129,5 +132,26 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
             managerCompat.notify(1, builder.build());
 
         }
+    }
+    private void fetchProfileText() {
+
+        // Assuming you have stored the user ID after login in a variable named "userId"
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        String userId = user.getUid();
+        Toast.makeText(this, userId, Toast.LENGTH_SHORT).show();
+        db.collection("user")
+                .document(userId)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        Toast.makeText(this, "Exists", Toast.LENGTH_SHORT).show();
+                        String email = documentSnapshot.getString("email");
+                        profile.setText(email);
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to fetch profile", Toast.LENGTH_SHORT).show();
+                });
     }
 }

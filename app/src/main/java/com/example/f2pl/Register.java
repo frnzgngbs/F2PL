@@ -40,6 +40,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,27 +80,24 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
                             FirebaseUser currentUser = mAuth.getCurrentUser();
 
-                            String userId = currentUser.getUid();
+                            String uid = currentUser.getUid();
 
-                            User user = new User(userId,user_email, user_password, mpin,0,0,0,0,0,0, 0);
-                            db.collection("user")
-                                    .add(user)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                        @Override
-                                        public void onSuccess(DocumentReference documentReference) {
-                                            Toast.makeText(Register.this, "Insert in Database successfully", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                            // Registration success, update UI accordingly// You can retrieve the user ID with user.getUid()
+                            User user = new User(user_email, user_password, mpin,0,0,0,0,0,0, 0);
+                            DocumentReference docRef = db.collection("user").document(uid);
 
-                            // You can also sign in the user immediately after registration
-                            // by calling mAuth.signInWithEmailAndPassword(email, password) here
-                            mAuth.signInWithEmailAndPassword(user_email, user_password)
-                                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            docRef.set(user)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
-                                        public void onComplete(@NonNull Task<AuthResult> task) {
-                                            startActivity(new Intent(Register.this, MainPage.class));
-                                            FirebaseUser signedInUser = mAuth.getCurrentUser();
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(Register.this, "Created successfully", Toast.LENGTH_SHORT).show();
+                                            mAuth.signInWithEmailAndPassword(user_email, user_password)
+                                                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                                            startActivity(new Intent(Register.this, MainPage.class));
+                                                            FirebaseUser signedInUser = mAuth.getCurrentUser();
+                                                        }
+                                                    });
                                         }
                                     });
 
