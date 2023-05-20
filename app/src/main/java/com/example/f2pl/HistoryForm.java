@@ -14,7 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class HistoryForm extends AppCompatActivity implements View.OnClickListener{
 
@@ -28,6 +36,9 @@ public class HistoryForm extends AppCompatActivity implements View.OnClickListen
     private String selectedAnswer = "";
     private int numberofHint = 1;
     HistoryQuestion history = new HistoryQuestion();
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     ImageView hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +126,20 @@ public class HistoryForm extends AppCompatActivity implements View.OnClickListen
         } else {
             passStatus = "Failed";
         }
+        String uID = user.getUid();
+        DocumentReference documentRef = db.collection("user").document(uID);
+        Map<String, Object> data = new HashMap<>();
+
+        data.put("history_score", score);
+
+        documentRef.update(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+
+                });
 
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)

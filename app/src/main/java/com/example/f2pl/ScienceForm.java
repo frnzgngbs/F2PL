@@ -14,7 +14,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.ktx.Firebase;
+
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class ScienceForm extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,6 +38,10 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
     ImageView hint;
     private int numberofHint = 1;
     ScienceQuestion science = new ScienceQuestion();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startTimer();
@@ -115,6 +128,21 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
             } else {
                 passStatus = "Failed";
             }
+
+            String uID = user.getUid();
+            DocumentReference documentRef = db.collection("user").document(uID);
+            Map<String, Object> data = new HashMap<>();
+
+            data.put("science_score", score);
+
+            documentRef.update(data)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+
+                        }
+
+                    });
 
             new AlertDialog.Builder(this)
                     .setTitle(passStatus)

@@ -14,6 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class SportsForm extends AppCompatActivity implements View.OnClickListener{
 
     Button ansA, ansB, ansC, ansD, submit;
@@ -27,6 +36,9 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
     ImageView hint;
     private int numberofHint = 1;
     SportsQuestion sports = new SportsQuestion();
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startTimer();
@@ -115,6 +127,19 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
             passStatus = "Failed";
         }
 
+        String uID = user.getUid();
+        DocumentReference documentRef = db.collection("user").document(uID);
+        Map<String, Object> data = new HashMap<>();
+
+        data.put("sports_score", score);
+
+        documentRef.update(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                });
         new AlertDialog.Builder(this)
                 .setTitle(passStatus)
                 .setMessage("Score: " + score + " out of " + totalQuestions)
