@@ -28,6 +28,12 @@
             </intent-filter>
         </receiver>
         <activity
+            android:name=".ProfileCardView"
+            android:exported="false" />
+        <activity
+            android:name=".LoginUser"
+            android:exported="false" />
+        <activity
             android:name=".MathForm"
             android:exported="false" />
         <activity
@@ -52,11 +58,14 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".LoginUser"
-            android:exported="false" />
+            android:name=".ExchangeCardView"
+            android:exported="false"/>
         <activity
             android:name=".MPIN_Activity"
             android:exported="false" />
+        <activity
+            android:name=".Calender"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
