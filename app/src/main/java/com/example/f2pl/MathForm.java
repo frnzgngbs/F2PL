@@ -154,7 +154,7 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
                             int coins = Objects.requireNonNull(document.getLong("coins")).intValue();
                             if (score == 10) {
                                 docRef.update("coins", coins+=2);
-                            } else if (score < 10 && score >= 8) {
+                            } else if (score < 10 && score >= 6) {
                                 docRef.update("coins", coins+=1);
                             }
                         } else {
@@ -175,13 +175,13 @@ public class MathForm extends AppCompatActivity implements View.OnClickListener{
                 passStatus = "Failed";
             }
 
-            new AlertDialog.Builder(this)
-                    .setTitle(passStatus)
-                    .setMessage("Score: " + score + " out of " + totalQuestions)
-                    .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
-                    .setCancelable(false)
-                    .show();
         }
+        new AlertDialog.Builder(this)
+                .setTitle(passStatus)
+                .setMessage("Score: " + score + " out of " + totalQuestions)
+                .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
+                .setCancelable(false)
+                .show();
     }
 
     void quitQuiz() {

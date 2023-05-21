@@ -178,13 +178,13 @@ public class ScienceForm extends AppCompatActivity implements View.OnClickListen
                 passStatus = "Failed";
             }
 
-            new AlertDialog.Builder(this)
-                    .setTitle(passStatus)
-                    .setMessage("Score: " + score + " out of " + totalQuestions)
-                    .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
-                    .setCancelable(false)
-                    .show();
         }
+        new AlertDialog.Builder(this)
+                .setTitle(passStatus)
+                .setMessage("Score: " + score + " out of " + totalQuestions)
+                .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
+                .setCancelable(false)
+                .show();
     }
 
     void quitQuiz() {

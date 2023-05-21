@@ -176,13 +176,13 @@ public class GamingForm extends AppCompatActivity implements View.OnClickListene
                 passStatus = "Failed";
             }
 
-            new AlertDialog.Builder(this)
-                    .setTitle(passStatus)
-                    .setMessage("Score: " + score + " out of " + totalQuestions)
-                    .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
-                    .setCancelable(false)
-                    .show();
         }
+        new AlertDialog.Builder(this)
+                .setTitle(passStatus)
+                .setMessage("Score: " + score + " out of " + totalQuestions)
+                .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
+                .setCancelable(false)
+                .show();
     }
 
         void quitQuiz () {

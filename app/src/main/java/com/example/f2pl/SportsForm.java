@@ -84,12 +84,28 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
         ansD.setBackgroundColor(ContextCompat.getColor(this, R.color.f2plorange));
 
         if (view.getId() == hint.getId()) {
-            if (numberofHint == 1) {
-                useHint();
-                numberofHint--;
-            } else {
-                Toast.makeText(this, "No more available hints.", Toast.LENGTH_SHORT).show();
-            }
+            String uid = user.getUid();
+            DocumentReference docRef = db.collection("user").document(uid);
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Integer hints = document.getLong("hint").intValue();
+                            if(hints != 0) {
+                                useHint();
+                                docRef.update("hint", --hints);
+                            }else {
+                                Toast.makeText(SportsForm.this, "No more available hints.", Toast.LENGTH_SHORT).show();
+                            }
+
+                        } else {
+                        }
+                    } else {
+                    }
+                }
+            });
         } else {
             Button selectedChoice = (Button) view;
             if (selectedChoice.getId() == R.id.submitanswer) {
@@ -175,14 +191,13 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
             } else {
                 passStatus = "Failed";
             }
-
-            new AlertDialog.Builder(this)
-                    .setTitle(passStatus)
-                    .setMessage("Score: " + score + " out of " + totalQuestions)
-                    .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
-                    .setCancelable(false)
-                    .show();
         }
+        new AlertDialog.Builder(this)
+                .setTitle(passStatus)
+                .setMessage("Score: " + score + " out of " + totalQuestions)
+                .setPositiveButton("Quit", (dialogInterface, i) -> quitQuiz())
+                .setCancelable(false)
+                .show();
     }
 
     void quitQuiz() {

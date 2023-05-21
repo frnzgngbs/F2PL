@@ -11,8 +11,10 @@ public class User {
     private int prog_score;
     private int math_score;
     private int coins;
+    private int hint;
+    private int quizzes_taken;
 
-    public User(String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins) {
+    public User(String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins, int hint,int quizzes_taken) {
         this.email = email;
         this.password = password;
         this.MPIN = MPIN;
@@ -22,6 +24,8 @@ public class User {
         this.history_score = history_score;
         this.prog_score = prog_score;
         this.math_score = math_score;
+        this.hint = hint;
+        this.quizzes_taken = quizzes_taken;
         this.coins = coins;
     }
 
@@ -103,5 +107,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getHint() {
+        return hint;
+    }
+
+    public void setHint(int hint) {
+        this.hint = hint;
+    }
+
+    public int getQuizzes_taken() {
+        return quizzes_taken;
+    }
+
+    public void setQuizzes_taken(int quizzes_taken) {
+        this.quizzes_taken = quizzes_taken;
     }
 }
