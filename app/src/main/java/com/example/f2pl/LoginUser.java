@@ -51,10 +51,15 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         Intent i;
+
         String email = String.valueOf(txtemail.getText());
         String password = String.valueOf(txtpassword.getText());
 
         if(view.getId() == btnLogin.getId()) {
+            if(email.equals("") || password.equals("")) {
+                Toast.makeText(this, "Please input all fields.", Toast.LENGTH_SHORT).show();
+                return;
+            }
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override

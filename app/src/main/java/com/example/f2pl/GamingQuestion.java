@@ -25,7 +25,7 @@ public class GamingQuestion {
             "Minecraft",
             "Charizard",
             "Support",
-            "Charles Darwin"
+            "Diamonds"
     };
 
     public String choices[][] = {
