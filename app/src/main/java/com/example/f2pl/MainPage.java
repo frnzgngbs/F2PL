@@ -62,7 +62,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgProg = findViewById(R.id.cardProg);
         ctgMath = findViewById(R.id.cardMath);
         ctgLocation = findViewById(R.id.cardlocation);
-        ctgCalendar = findViewById(R.id.cardcalender);
+        ctgCalendar = findViewById(R.id.cardcalendar);
         ctgContacts = findViewById(R.id.cardcontact);
         ctgTheme = findViewById(R.id.theme);
         ctgleaderboards = findViewById(R.id.cardRank);
