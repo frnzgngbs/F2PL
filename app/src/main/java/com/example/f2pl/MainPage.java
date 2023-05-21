@@ -33,6 +33,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
 
         ctgProfile = findViewById(R.id.cardProfile);
         ctgExchange = findViewById(R.id.cardExchange);
+        ctgCalendar = findViewById(R.id.cardcalendar);
         ctgScience = findViewById(R.id.cardScience);
         ctgSports = findViewById(R.id.cardSports);
         ctgGaming = findViewById(R.id.cardGaming);
@@ -40,7 +41,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgProg = findViewById(R.id.cardProg);
         ctgMath = findViewById(R.id.cardMath);
         ctgLocation = findViewById(R.id.cardlocation);
-        ctgCalendar = findViewById(R.id.cardcalender);
+        ctgCalendar = findViewById(R.id.cardcalendar);
         ctgContacts = findViewById(R.id.cardcontact);
         ctgTheme = findViewById(R.id.theme);
         profile = findViewById(R.id.profile);
@@ -66,8 +67,12 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         Intent i;
         if (view.getId() == ctgProfile.getId()) {
             Toast.makeText(this, "User Profile", Toast.LENGTH_SHORT).show();
+            i = new Intent(MainPage.this, ProfileCardView.class);
+            startActivity(i);
         } else if (view.getId() == ctgExchange.getId()) {
             Toast.makeText(this, "Exchange coins", Toast.LENGTH_SHORT).show();
+            i = new Intent(MainPage.this, ExchangeCardView.class);
+            startActivity(i);
         } else if (view.getId() == ctgScience.getId()) {
             i = new Intent(MainPage.this, ScienceForm.class);
             startActivity(i);
@@ -103,7 +108,9 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         } else if(ctgContacts.getId() == view.getId()) {
             Toast.makeText(this, "Contacts has been clicked", Toast.LENGTH_SHORT).show();
         } else if(ctgCalendar.getId() == view.getId()) {
-            Toast.makeText(this, "Calendar has been clicked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Calender has been clicked", Toast.LENGTH_SHORT).show();
+            i = new Intent(MainPage.this, Calender.class);
+            startActivity(i);
         } else if(ctgLocation.getId() == view.getId()) {
             Toast.makeText(this, "Location has been clicked", Toast.LENGTH_SHORT).show();
         }

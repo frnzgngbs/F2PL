@@ -157,7 +157,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardcalender"
+                android:id="@+id/cardcalendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -175,6 +175,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/calendar"
                         android:src="@drawable/calendar"
                         android:layout_width="80dp"
                         android:layout_height="80dp"/>
@@ -216,8 +217,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#000"
-                        android:text="Profile"/>
+                        android:text="Contacts"
+                        android:textColor="#000" />
 
 
                 </LinearLayout>
