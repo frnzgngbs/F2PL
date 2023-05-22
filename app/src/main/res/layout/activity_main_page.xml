@@ -8,7 +8,6 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -92,14 +91,14 @@
                 android:layout_rowWeight="1"
                 android:background="@drawable/mainlayout"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -126,14 +125,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -159,14 +158,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -193,14 +192,14 @@
                 android:layout_rowWeight="1"
                 android:background="@drawable/mainlayout"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -228,14 +227,14 @@
                 android:layout_rowWeight="1"
                 android:background="@drawable/mainlayout"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -263,14 +262,14 @@
                 android:layout_rowWeight="1"
                 android:background="@drawable/mainlayout"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -296,14 +295,14 @@
                 android:layout_rowWeight="1"
                 android:background="@drawable/mainlayout"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -331,14 +330,14 @@
                 android:layout_rowWeight="1"
                 android:background="@drawable/mainlayout"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -403,14 +402,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -435,14 +434,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -467,14 +466,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -499,14 +498,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -530,14 +529,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView
@@ -561,14 +560,14 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardCornerRadius="15dp"
+                android:layout_margin="13dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp"
+                    android:padding="15dp"
                     android:gravity="center">
 
                     <ImageView

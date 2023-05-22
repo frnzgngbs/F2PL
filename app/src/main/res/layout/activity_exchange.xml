@@ -76,9 +76,9 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="12dp"
+                android:layout_margin="15dp"
                 android:background="@drawable/mainlayout"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="6dp">
 
                 <LinearLayout
@@ -147,8 +147,8 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="12dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="6dp">
 
                 <LinearLayout
@@ -217,8 +217,8 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="12dp"
+                android:layout_margin="15dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="6dp">
 
                 <LinearLayout
@@ -288,9 +288,9 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="12dp"
+                android:layout_margin="15dp"
                 android:background="@drawable/mainlayout"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="6dp">
 
                 <LinearLayout
@@ -358,9 +358,9 @@
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_margin="12dp"
+                android:layout_margin="15dp"
                 android:background="@drawable/mainlayout"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
                 app:cardElevation="6dp">
 
                 <LinearLayout
