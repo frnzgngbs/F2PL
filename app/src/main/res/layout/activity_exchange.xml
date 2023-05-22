@@ -57,7 +57,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            >
         </LinearLayout>
 
         <GridLayout
@@ -111,6 +113,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -123,6 +126,7 @@
                         android:id="@+id/profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Flashlight"
                         android:textColor="#000" />
 
@@ -130,8 +134,10 @@
                         android:id="@+id/reward1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="105dp"
                         android:text="Exchange" />
                 </LinearLayout>
+
 
             </androidx.cardview.widget.CardView>
 
@@ -178,6 +184,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+
                     android:padding="16dp">
 
                     <ImageView
@@ -189,6 +197,7 @@
                         android:id="@+id/mug"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Mug"
                         android:textColor="#000" />
 
@@ -196,6 +205,7 @@
                         android:id="@+id/reward2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="105dp"
                         android:text="Exchange" />
                 </LinearLayout>
 
@@ -244,6 +254,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+
                     android:padding="16dp">
 
                     <ImageView
@@ -255,6 +267,7 @@
                         android:id="@+id/plate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Plate"
                         android:textColor="#000" />
 
@@ -262,6 +275,8 @@
                         android:id="@+id/reward3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="105dp"
+
                         android:text="Exchange" />
                 </LinearLayout>
 
@@ -311,6 +326,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
+                    android:layout_marginTop="20dp"
                     android:padding="16dp">
 
                     <ImageView
@@ -322,12 +338,14 @@
                         android:id="@+id/cap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Cap"
                         android:textColor="#000" />
 
                     <Button
                         android:id="@+id/reward4"
                         android:layout_width="wrap_content"
+                        android:layout_marginLeft="105dp"
                         android:layout_height="wrap_content"
                         android:text="Exchange" />
                 </LinearLayout>
@@ -396,6 +414,8 @@
                         android:id="@+id/reward5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="105dp"
+                        android:layout_marginTop="5dp"
                         android:text="Exchange" />
                 </LinearLayout>
 

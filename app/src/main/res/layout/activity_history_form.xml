@@ -92,15 +92,16 @@
             android:padding="5dp"
             android:textSize="20sp"
             android:text="LETTER D" />
-    </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/submitanswer"
-        android:text="Submit"
-        android:backgroundTint="@color/black"
-        android:textSize="20sp"
-        android:layout_marginTop="580dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/submitanswer"
+            android:text="Submit"
+            android:backgroundTint="@color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
