@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="238dp"
+        android:layout_marginTop="225dp"
         android:fontFamily="@font/roboto_black"
         android:textSize="20sp"
         android:text="Question "

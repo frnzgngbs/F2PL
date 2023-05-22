@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Calender"
     android:orientation="vertical"
-    android:background="@drawable/bg_top_profile">
+    android:background="@color/f2plbackground">
 
     <CalendarView
         android:id="@+id/calendar"

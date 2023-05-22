@@ -82,14 +82,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
                             String uid = currentUser.getUid();
 
-                            User user = new User(user_email, user_password, mpin,0,0,0,0,0,0, 0, 2, 0);
+                            User user = new User(user_email, user_password, mpin,0,0,0,0,0,0, 0, 2, 0, true, true, true, true, true, true);
                             DocumentReference docRef = db.collection("user").document(uid);
-
                             docRef.set(user)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Toast.makeText(Register.this, "Created successfully", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(Register.this, "Redirecting to the main page...", Toast.LENGTH_SHORT).show();
                                             mAuth.signInWithEmailAndPassword(user_email, user_password)
                                                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                                         @Override

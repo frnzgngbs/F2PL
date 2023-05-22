@@ -98,6 +98,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgCalendar.setOnClickListener(this);
         ctgContacts.setOnClickListener(this);
         ctgTheme.setOnClickListener(this);
+        ctgSignout.setOnClickListener(this);
 
         displayCoins();
         fetchProfileText();
@@ -114,7 +115,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
                         Boolean math_state = document.getBoolean("math_state");
                         if(!math_state) {
                             ctgMath.setClickable(false);
-                            ctgMath.setCardBackgroundColor(whitecolor);
+                            ctgMath.setCardBackgroundColor(clickedcolor);
                         }
                         Boolean science_state = document.getBoolean("science_state");
                         if(!science_state) {
@@ -171,7 +172,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         if (view.getId() == ctgProfile.getId()) {
             Toast.makeText(this, "User Profile", Toast.LENGTH_SHORT).show();
         } else if (view.getId() == ctgExchange.getId()) {
-            Toast.makeText(this, "Exchange coins", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainPage.this, ExchangeCardView.class));
         } else if (view.getId() == ctgScience.getId()) {
             String uid = user.getUid();
             DocumentReference docRef = db.collection("user").document(uid);
@@ -307,11 +308,14 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         } else if (ctgTheme.getId() == view.getId()) {
             Toast.makeText(this, "Theme has been clicked", Toast.LENGTH_SHORT).show();
         } else if (ctgContacts.getId() == view.getId()) {
-            Toast.makeText(this, "Contacts has been clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainPage.this, ExchangeCardView.class));
         } else if (ctgCalendar.getId() == view.getId()) {
             Toast.makeText(this, "Calendar has been clicked", Toast.LENGTH_SHORT).show();
         } else if (ctgLocation.getId() == view.getId()) {
             Toast.makeText(this, "Location has been clicked", Toast.LENGTH_SHORT).show();
+        } else if(ctgSignout.getId() == view.getId()) {
+            Toast.makeText(this, "Signing out...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainPage.this, LoginUser.class));
         }
     }
 

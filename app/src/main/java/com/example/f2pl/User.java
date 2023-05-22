@@ -13,8 +13,10 @@ public class User {
     private int coins;
     private int hint;
     private int quizzes_taken;
+    private boolean science_state, sports_state, math_state, prog_state, gaming_state, history_state;
 
-    public User(String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins, int hint,int quizzes_taken) {
+
+    public User(String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins, int hint,int quizzes_taken, boolean prog_state, boolean science_state, boolean sports_state, boolean history_state, boolean gaming_state, boolean math_state) {
         this.email = email;
         this.password = password;
         this.MPIN = MPIN;
@@ -27,6 +29,12 @@ public class User {
         this.hint = hint;
         this.quizzes_taken = quizzes_taken;
         this.coins = coins;
+        this.prog_state = prog_state;
+        this.science_state = science_state;
+        this.gaming_state = gaming_state;
+        this.sports_state = sports_state;
+        this.math_state = math_state;
+        this.history_state = history_state;
     }
 
     public int getCoins() {
@@ -123,5 +131,53 @@ public class User {
 
     public void setQuizzes_taken(int quizzes_taken) {
         this.quizzes_taken = quizzes_taken;
+    }
+
+    public boolean isScience_state() {
+        return science_state;
+    }
+
+    public void setScience_state(boolean science_state) {
+        this.science_state = science_state;
+    }
+
+    public boolean isSports_state() {
+        return sports_state;
+    }
+
+    public void setSports_state(boolean sports_state) {
+        this.sports_state = sports_state;
+    }
+
+    public boolean isMath_state() {
+        return math_state;
+    }
+
+    public void setMath_state(boolean math_state) {
+        this.math_state = math_state;
+    }
+
+    public boolean isProg_state() {
+        return prog_state;
+    }
+
+    public void setProg_state(boolean prog_state) {
+        this.prog_state = prog_state;
+    }
+
+    public boolean isGaming_state() {
+        return gaming_state;
+    }
+
+    public void setGaming_state(boolean gaming_state) {
+        this.gaming_state = gaming_state;
+    }
+
+    public boolean isHistory_state() {
+        return history_state;
+    }
+
+    public void setHistory_state(boolean history_state) {
+        this.history_state = history_state;
     }
 }

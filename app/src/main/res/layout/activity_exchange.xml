@@ -1,110 +1,409 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_top_profile"
+    android:background="@color/f2plbackground"
     tools:context=".ExchangeCardView">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <LinearLayout
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_marginTop="32dp"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="vertical"
-            android:background="@drawable/bg_exchange_white">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <ImageView
+                android:id="@+id/backlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:src="@drawable/baseline_arrow_back_24"/>
             <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="250dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-                <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/txtMain"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/rewards"
-                    android:layout_gravity="center">
-                </ImageView>
+                    android:layout_height="wrap_content"
+                    android:textSize="33sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Exch"/>
+
+                <TextView
+                    android:id="@+id/txtMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="33sp"
+                    android:textColor="@color/f2plorange"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="ange"/>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/bg_exchange_bar"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:src="@drawable/foodpanda"></ImageView>
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/foodpanda2"
-                android:layout_marginRight="10dp">
-            </ImageView>
-
-        </LinearLayout>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/bg_exchange_bar"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="250dp"
-                android:layout_height="220dp"
-                android:src="@drawable/jbee">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="220dp"
-                android:src="@drawable/jbee2">
-            </ImageView>
-
-        </LinearLayout>
-        </HorizontalScrollView>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/bg_exchange_bar"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginBottom="40dp">
-
-            <ImageView
-                android:layout_width="250dp"
-                android:layout_height="220dp"
-                android:src="@drawable/mdco">
-            </ImageView>
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="220dp"
-                android:src="@drawable/mdco2">
-            </ImageView>
-
+            android:layout_marginLeft="10dp">
         </LinearLayout>
-        </HorizontalScrollView>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="1"
+            android:columnOrderPreserved="false"
+            android:rowCount="3">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                android:background="@drawable/mainlayout"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Coins: "
+                        android:textColor="@color/f2plorange"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/item1cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/coins" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/flashlight" />
+
+                    <TextView
+                        android:id="@+id/profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Flashlight"
+                        android:textColor="#000" />
+
+                    <Button
+                        android:id="@+id/reward1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exchange" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardExchange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Coins: "
+                        android:textColor="@color/f2plorange"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/item2cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/coins" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/mug" />
+
+                    <TextView
+                        android:id="@+id/mug"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mug"
+                        android:textColor="#000" />
+
+                    <Button
+                        android:id="@+id/reward2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exchange" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Coins: "
+                        android:textColor="@color/f2plorange"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/item3cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/coins" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/plate" />
+
+                    <TextView
+                        android:id="@+id/plate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plate"
+                        android:textColor="#000" />
+
+                    <Button
+                        android:id="@+id/reward3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exchange" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardcalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                android:background="@drawable/mainlayout"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Coins: "
+                        android:textColor="@color/f2plorange"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/item4cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/coins" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/cap" />
+
+                    <TextView
+                        android:id="@+id/cap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cap"
+                        android:textColor="#000" />
+
+                    <Button
+                        android:id="@+id/reward4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exchange" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardcontact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                android:background="@drawable/mainlayout"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Coins: "
+                        android:textColor="@color/f2plorange"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/item5cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/coins" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/teddy" />
+
+                    <TextView
+                        android:id="@+id/teddy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teddy Bear"
+                        android:textColor="#000" />
+
+                    <Button
+                        android:id="@+id/reward5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Exchange" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+
     </LinearLayout>
 
 </ScrollView>

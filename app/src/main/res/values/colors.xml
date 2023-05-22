@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#000000</color>
+    <color name="darktheme">#1E1E1E</color>
     <color name="white">#FFFFFFFF</color>
     <color name="f2plorange">#FE684C</color>
+    <color name="bluetheme">#059EFF</color>
     <color name="green">#00FF00</color>
     <color name="f2plbackground">#FFFEFE</color>
     <color name ="selectedchoice">#FF8A74</color>

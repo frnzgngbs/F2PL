@@ -77,5 +77,4 @@ public class MainActivity extends AppCompatActivity {
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         }
     }
-
 }
