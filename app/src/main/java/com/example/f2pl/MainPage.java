@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import android.app.Notification;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -309,7 +310,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         } else if (ctgTheme.getId() == view.getId()) {
             Toast.makeText(this, "Theme has been clicked", Toast.LENGTH_SHORT).show();
         } else if (ctgContacts.getId() == view.getId()) {
-            startActivity(new Intent(MainPage.this, ExchangeCardView.class));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://contacts/people")));
         } else if (ctgCalendar.getId() == view.getId()) {
             Toast.makeText(this, "Calendar has been clicked", Toast.LENGTH_SHORT).show();
         } else if (ctgLocation.getId() == view.getId()) {
