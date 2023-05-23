@@ -134,7 +134,7 @@
                         android:id="@+id/reward1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="105dp"
+                        android:layout_gravity="end"
                         android:text="Exchange" />
                 </LinearLayout>
 
@@ -205,7 +205,7 @@
                         android:id="@+id/reward2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="105dp"
+                        android:layout_gravity="end"
                         android:text="Exchange" />
                 </LinearLayout>
 
@@ -275,8 +275,7 @@
                         android:id="@+id/reward3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="105dp"
-
+                        android:layout_gravity="end"
                         android:text="Exchange" />
                 </LinearLayout>
 
@@ -345,7 +344,7 @@
                     <Button
                         android:id="@+id/reward4"
                         android:layout_width="wrap_content"
-                        android:layout_marginLeft="105dp"
+                        android:layout_gravity="end"
                         android:layout_height="wrap_content"
                         android:text="Exchange" />
                 </LinearLayout>
@@ -414,8 +413,7 @@
                         android:id="@+id/reward5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="105dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_gravity="end"
                         android:text="Exchange" />
                 </LinearLayout>
 

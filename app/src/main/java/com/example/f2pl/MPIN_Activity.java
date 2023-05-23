@@ -174,9 +174,16 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
                                                     FirebaseUser user = mAuth.getCurrentUser();
                                                     clearMPIN();
                                                     // Perform further actions with the signed-in user if needed
+                                                } else {
+                                                    // Error occurred during sign in
+                                                    Exception exception = task.getException();
+                                                    // Handle the error appropriately
                                                 }
                                             }
                                         });
+                            } else {
+                                Toast.makeText(MPIN_Activity.this, "Incorrect MPIN", Toast.LENGTH_SHORT).show();
+                                clearMPIN();
                             }
                         } else {
                             Toast.makeText(MPIN_Activity.this, "Incorrect MPIN", Toast.LENGTH_SHORT).show();

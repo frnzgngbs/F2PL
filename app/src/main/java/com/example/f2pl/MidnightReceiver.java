@@ -43,8 +43,8 @@ public class MidnightReceiver extends BroadcastReceiver {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.add(Calendar.DAY_OF_YEAR, 1);
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 14);
+        calendar.set(Calendar.MINUTE, 42);
         calendar.set(Calendar.SECOND, 0);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
@@ -97,6 +97,7 @@ public class MidnightReceiver extends BroadcastReceiver {
                             state.put("prog_state", true);
                             state.put("hint", 2);
                             state.put("quizzes_taken", 0);
+                            state.put("dailyScore", 0);
 
                             docRef.update(state)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
