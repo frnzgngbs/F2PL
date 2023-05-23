@@ -95,6 +95,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgProg.setOnClickListener(this);
         ctgMath.setOnClickListener(this);
         ctgLocation.setOnClickListener(this);
+        ctgleaderboards.setOnClickListener(this);
         ctgCalendar.setOnClickListener(this);
         ctgContacts.setOnClickListener(this);
         ctgTheme.setOnClickListener(this);
@@ -313,7 +314,10 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
             Toast.makeText(this, "Calendar has been clicked", Toast.LENGTH_SHORT).show();
         } else if (ctgLocation.getId() == view.getId()) {
             Toast.makeText(this, "Location has been clicked", Toast.LENGTH_SHORT).show();
-        } else if(ctgSignout.getId() == view.getId()) {
+        } else if(ctgleaderboards.getId() == view.getId()) {
+            startActivity(new Intent(MainPage.this, Leaderboards.class));
+        }
+        else if(ctgSignout.getId() == view.getId()) {
             Toast.makeText(this, "Signing out...", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainPage.this, LoginUser.class));
         }

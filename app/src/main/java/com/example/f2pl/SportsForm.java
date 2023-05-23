@@ -148,6 +148,19 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
 
         data.put("sports_score", score);
 
+        documentRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    DocumentSnapshot docs = task.getResult();
+                    if(docs.exists()) {
+                        long score1 = docs.getLong("dailyScore").intValue();
+                        score1 += score;
+                        documentRef.update("dailyScore", score1);
+                    }
+                }
+            }
+        });
         documentRef.update(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
                             String uid = currentUser.getUid();
 
-                            User user = new User(user_email, user_password, mpin,0,0,0,0,0,0, 0, 2, 0, true, true, true, true, true, true);
+                            User user = new User(user_email, user_password, mpin,0,0,0,0,0,0, 0, 2, 0, true, true, true, true, true, true, 0);
                             DocumentReference docRef = db.collection("user").document(uid);
                             docRef.set(user)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {

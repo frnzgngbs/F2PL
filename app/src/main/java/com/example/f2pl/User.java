@@ -14,9 +14,34 @@ public class User {
     private int hint;
     private int quizzes_taken;
     private boolean science_state, sports_state, math_state, prog_state, gaming_state, history_state;
+    private int dailyScore;
+    private int position;
+    private String position1;
+    private String dailyScore1;
 
+    public String getPosition1() {
+        return position1;
+    }
 
-    public User(String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins, int hint,int quizzes_taken, boolean prog_state, boolean science_state, boolean sports_state, boolean history_state, boolean gaming_state, boolean math_state) {
+    public void setPosition1(String position1) {
+        this.position1 = position1;
+    }
+
+    public String getDailyScore1() {
+        return dailyScore1;
+    }
+
+    public void setDailyScore1(String dailyScore1) {
+        this.dailyScore1 = dailyScore1;
+    }
+
+    public User(String position1, String email, String dailyScore1) {
+        this.position1 = position1;
+        this.email = email;
+        this.dailyScore1 = dailyScore1;
+    }
+
+    public User(String email, String password, String MPIN, int science_score, int sports_score, int gaming_score, int history_score, int prog_score, int math_score, int coins, int hint,int quizzes_taken, boolean prog_state, boolean science_state, boolean sports_state, boolean history_state, boolean gaming_state, boolean math_state, int dailyScore) {
         this.email = email;
         this.password = password;
         this.MPIN = MPIN;
@@ -35,6 +60,7 @@ public class User {
         this.sports_state = sports_state;
         this.math_state = math_state;
         this.history_state = history_state;
+        this.dailyScore = dailyScore;
     }
 
     public int getCoins() {
@@ -179,5 +205,22 @@ public class User {
 
     public void setHistory_state(boolean history_state) {
         this.history_state = history_state;
+
+    }
+
+    public int getDailyScore() {
+        return dailyScore;
+    }
+
+    public void setDailyScore(int dailyScore) {
+        this.dailyScore = dailyScore;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }
