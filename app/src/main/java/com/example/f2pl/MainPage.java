@@ -174,17 +174,17 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
                         }
                         Integer takenQuiz = document.getLong("quizzes_taken").intValue();
                         if(takenQuiz == 3) {
-                            ctgSports.setCardBackgroundColor(whitecolor);
+                            ctgSports.setCardBackgroundColor(clickedcolor);
                             ctgSports.setClickable(false);
-                            ctgScience.setCardBackgroundColor(whitecolor);
+                            ctgScience.setCardBackgroundColor(clickedcolor);
                             ctgScience.setClickable(false);
-                            ctgProg.setCardBackgroundColor(whitecolor);
+                            ctgProg.setCardBackgroundColor(clickedcolor);
                             ctgProg.setClickable(false);
-                            ctgGaming.setCardBackgroundColor(whitecolor);
+                            ctgGaming.setCardBackgroundColor(clickedcolor);
                             ctgGaming.setClickable(false);
-                            ctgHistory.setCardBackgroundColor(whitecolor);
+                            ctgHistory.setCardBackgroundColor(clickedcolor);
                             ctgHistory.setClickable(false);
-                            ctgMath.setCardBackgroundColor(whitecolor);
+                            ctgMath.setCardBackgroundColor(clickedcolor);
                             ctgMath.setClickable(false);
                         }
                     } else {
@@ -200,7 +200,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
 
         Intent i;
         if (view.getId() == ctgProfile.getId()) {
-            Toast.makeText(this, "User Profile", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainPage.this, ProfileCardView.class));
         } else if (view.getId() == ctgExchange.getId()) {
             startActivity(new Intent(MainPage.this, ExchangeCardView.class));
         } else if (view.getId() == ctgScience.getId()) {

@@ -63,7 +63,6 @@ public class Leaderboards extends AppCompatActivity {
                 });
     }
 
-
     private void initRecyclerView() {
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);

@@ -8,11 +8,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -142,28 +149,49 @@ public class MPIN_Activity extends AppCompatActivity implements View.OnClickList
         String enteredMPIN = passCode.trim();  // Trim the entered passcode to remove leading/trailing whitespaces
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-        
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
         db.collection("user")
                 .whereEqualTo("mpin", enteredMPIN)
                 .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    if (!queryDocumentSnapshots.isEmpty()) {
-                        // MPIN matches a user in the database
-                        startActivity(new Intent(this, MainPage.class));
-                        clearMPIN();
-                    } else {
-                        Toast.makeText(this, "MPIN is incorrect", Toast.LENGTH_SHORT).show();
-                        clearMPIN();
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot document = task.getResult();
+                            if (document != null && !document.isEmpty()) {
+                                String email = document.getDocuments().get(0).getString("email");
+                                String password = document.getDocuments().get(0).getString("password");
+
+                                // Sign in with retrieved email and password
+                                mAuth.signInWithEmailAndPassword(email, password)
+                                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    // User signed in successfully
+                                                    startActivity(new Intent(MPIN_Activity.this, MainPage.class));
+                                                    FirebaseUser user = mAuth.getCurrentUser();
+                                                    clearMPIN();
+                                                    // Perform further actions with the signed-in user if needed
+                                                } else {
+                                                    // Error occurred during sign in
+                                                    Exception exception = task.getException();
+                                                    // Handle the error appropriately
+                                                }
+                                            }
+                                        });
+                            } else {
+                                Toast.makeText(MPIN_Activity.this, "Incorrect MPIN", Toast.LENGTH_SHORT).show();
+                                clearMPIN();
+                            }
+                        } else {
+                            Toast.makeText(MPIN_Activity.this, "Incorrect MPIN", Toast.LENGTH_SHORT).show();
+                            clearMPIN();
+                        }
                     }
-                })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Failed to retrieve user data", Toast.LENGTH_SHORT).show();
-                    clearMPIN();
                 });
     }
-
 
     private SharedPreferences.Editor savePassCode(String passCode){
         SharedPreferences preferences = getSharedPreferences("passcode_pref", Context.MODE_PRIVATE);

@@ -2,115 +2,99 @@ package com.example.f2pl;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class ProfileCardView extends AppCompatActivity {
-    private ImageView profileImageView;
-    private static final int PICK_IMAGE_REQUEST = 1;
+import java.util.HashMap;
+import java.util.Map;
 
-    private String userEmail;
-    private String userPassword;
-    private String userMpin;
 
-    private TextView emailTextView;
-    private TextView passwordTextView;
-    private TextView mpinTextView;
-    private Button editButton;
+public class ProfileCardView extends AppCompatActivity implements View.OnClickListener{
 
-    @SuppressLint("MissingInflatedId")
-    @Override
+    private TextInputEditText email, password, confirmpass, MPIN;
+    private Button btnSaveChanges, btnCancelChanges;
+    private ImageView back;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // Retrieve the user data from the intent's extras
-        Intent intent = getIntent();
-        userEmail = intent.getStringExtra("email");
-        userPassword = intent.getStringExtra("password");
-        userMpin = intent.getStringExtra("mpin");
+        email = findViewById(R.id.profileemail);
+        password = findViewById(R.id.profilepassword);
+        confirmpass = findViewById(R.id.profileconfimrpasss);
+        MPIN = findViewById(R.id.profileMPIN);
+        btnSaveChanges = findViewById(R.id.btnSaveChanges);
+        btnCancelChanges = findViewById(R.id.btnCancelChanges);
+        back = findViewById(R.id.backMainPage);
 
-        profileImageView = findViewById(R.id.profileImageView);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
+
+        String uid = user.getUid();
+        DocumentReference docRef = db.collection("user").document(uid);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onClick(View v) {
-                openGallery();
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String user_email = document.getString("email");
+                        String user_password = document.getString("password");
+                        String user_MPIN = document.getString("mpin");
+                        email.setText(user_email);
+                        password.setText(user_password);
+                        confirmpass.setText(user_password);
+                        MPIN.setText(user_MPIN);
+                    }
+                }
             }
         });
-
-        emailTextView = findViewById(R.id.emailTextView);
-        passwordTextView = findViewById(R.id.passwordTextView);
-        mpinTextView = findViewById(R.id.mpinTextView);
-
-        // Set the retrieved user data to the EditText elements
-        emailTextView.setText(userEmail);
-        passwordTextView.setText(userPassword);
-        mpinTextView.setText(userMpin);
-
-        emailTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                emailTextView.requestFocus();
-            }
-        });
-
-        passwordTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                passwordTextView.requestFocus();
-            }
-        });
-
-        mpinTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mpinTextView.requestFocus();
-            }
-        });
-    }
-
-    private void openGallery() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
-    }
-
-    private void saveChanges() {
-        userEmail = emailTextView.getText().toString();
-        userPassword = passwordTextView.getText().toString();
-        userMpin = mpinTextView.getText().toString();
-
-        // Perform saving logic here
-
-        // Optionally, you can update the TextViews with the saved values
-        emailTextView.setText(userEmail);
-        passwordTextView.setText(userPassword);
-        mpinTextView.setText(userMpin);
+        MPIN.setFocusable(false);
+        MPIN.setFocusableInTouchMode(false);
+        btnSaveChanges.setOnClickListener(this);
+        btnCancelChanges.setOnClickListener(this);
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri imageUri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                profileImageView.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void onClick(View view) {
+        if(view.getId() == btnSaveChanges.getId()) {
+            Toast.makeText(this, "Saving Changes...", Toast.LENGTH_SHORT).show();
+            String uid = user.getUid();
+            DocumentReference docRef = db.collection("user").document(uid);
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Map<String, Object> user_change = new HashMap<>();
+                            user_change.put("email", email.getText());
+                            user_change.put("password", password.getText());
+                            docRef.update(user_change);
+                        }
+                    }
+                }
+            });
+        } else if(view.getId() == btnCancelChanges.getId()) {
+            Toast.makeText(this, "Discarding Changes...", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(ProfileCardView.this, MainPage.class));
+        } else if(view.getId() == back.getId()) {
+            startActivity(new Intent(ProfileCardView.this, MainPage.class));
         }
     }
 }

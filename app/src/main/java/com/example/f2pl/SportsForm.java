@@ -161,14 +161,7 @@ public class SportsForm extends AppCompatActivity implements View.OnClickListene
                 }
             }
         });
-        documentRef.update(data)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-
-                    }
-
-                });
+        documentRef.update(data);
         String passStatus = "";
         if (score > 6) {
             String uid = user.getUid();
