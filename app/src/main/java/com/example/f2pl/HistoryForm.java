@@ -148,14 +148,20 @@ public class HistoryForm extends AppCompatActivity implements View.OnClickListen
 
         data.put("history_score", score);
 
-        documentRef.update(data)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-
+        documentRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    DocumentSnapshot docs = task.getResult();
+                    if(docs.exists()) {
+                        long score1 = docs.getLong("dailyScore").intValue();
+                        score1 += score;
+                        documentRef.update("dailyScore", score1);
                     }
-
-                });
+                }
+            }
+        });
+        documentRef.update(data);
         String passStatus = "";
         if (score > 6) {
             String uid = user.getUid();
