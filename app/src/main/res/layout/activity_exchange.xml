@@ -36,8 +36,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="33sp"
-                    android:textColor="@color/black"
                     android:fontFamily="@font/poppins_bold"
+                    style="@style/textColor"
                     android:text="Exch"/>
 
                 <TextView
@@ -100,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="10"
-                        android:textColor="@color/black"
+                        style="@style/textColor"
                         android:textSize="16sp" />
 
                     <ImageView
@@ -128,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Flashlight"
-                        android:textColor="#000" />
+                        style="@style/textColor" />
 
                     <Button
                         android:id="@+id/reward1"
@@ -170,7 +170,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5"
-                        android:textColor="@color/black"
+                        style="@style/textColor"
                         android:textSize="16sp" />
 
                     <ImageView
@@ -199,7 +199,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Mug"
-                        android:textColor="#000" />
+                        style="@style/textColor" />
 
                     <Button
                         android:id="@+id/reward2"
@@ -240,7 +240,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="7"
-                        android:textColor="@color/black"
+                        style="@style/textColor"
                         android:textSize="16sp" />
 
                     <ImageView
@@ -269,7 +269,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Plate"
-                        android:textColor="#000" />
+                        style="@style/textColor" />
 
                     <Button
                         android:id="@+id/reward3"
@@ -312,7 +312,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="8"
-                        android:textColor="@color/black"
+                        style="@style/textColor"
                         android:textSize="16sp" />
 
                     <ImageView
@@ -340,7 +340,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="Cap"
-                        android:textColor="#000" />
+                        style="@style/textColor" />
 
                     <Button
                         android:id="@+id/reward4"
@@ -382,7 +382,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="15"
-                        android:textColor="@color/black"
+                        style="@style/textColor"
                         android:textSize="16sp" />
 
                     <ImageView
@@ -408,7 +408,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Teddy Bear"
-                        android:textColor="#000" />
+                        style="@style/textColor" />
 
                     <Button
                         android:id="@+id/reward5"
