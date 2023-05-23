@@ -8,4 +8,6 @@
     <color name="green">#00FF00</color>
     <color name="f2plbackground">#FFFEFE</color>
     <color name ="selectedchoice">#FF8A74</color>
+    <color name="grey">#aaa</color>
+    <color name="darkGrey">#ff424242</color>
 </resources>

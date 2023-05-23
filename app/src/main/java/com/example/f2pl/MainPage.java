@@ -2,13 +2,16 @@ package com.example.f2pl;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import android.app.Notification;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,6 +46,9 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
     private int bgcolor;
     private int clickedcolor;
     private int whitecolor;
+    boolean nightMode;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     Map<String, Object> state = new HashMap<>();
 
 
@@ -98,11 +104,34 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgleaderboards.setOnClickListener(this);
         ctgCalendar.setOnClickListener(this);
         ctgContacts.setOnClickListener(this);
-        ctgTheme.setOnClickListener(this);
         ctgSignout.setOnClickListener(this);
 
         displayCoins();
         fetchProfileText();
+
+        sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE);
+        nightMode = sharedPreferences.getBoolean("nightMode", false);
+
+        if(nightMode){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+
+        ctgTheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(nightMode){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor =sharedPreferences.edit();
+                    editor.putBoolean("nightMode", false);
+
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor =sharedPreferences.edit();
+                    editor.putBoolean("nightMode", true);
+                }
+                editor.apply();
+            }
+        });
 
         // TODO: get the state for each quizzes and set unclickable to false.
         String uid = user.getUid();

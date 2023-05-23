@@ -43,7 +43,8 @@
         android:layout_height="54dp"
         android:layout_marginTop="20dp"
         android:textSize="18dp"
-        android:text="Log-in" />
+        android:text="Log-in"
+        android:textColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,7 +67,8 @@
         android:layout_height="54dp"
         android:layout_marginTop="5dp"
         android:textSize="18dp"
-        android:text="MPIN" />
+        android:text="MPIN"
+        android:textColor="@color/white"/>
     
     <LinearLayout
         android:layout_width="match_parent"
