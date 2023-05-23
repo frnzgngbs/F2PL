@@ -171,7 +171,7 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
 
         Intent i;
         if (view.getId() == ctgProfile.getId()) {
-            Toast.makeText(this, "User Profile", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainPage.this, ProfileCardView.class));
         } else if (view.getId() == ctgExchange.getId()) {
             startActivity(new Intent(MainPage.this, ExchangeCardView.class));
         } else if (view.getId() == ctgScience.getId()) {
