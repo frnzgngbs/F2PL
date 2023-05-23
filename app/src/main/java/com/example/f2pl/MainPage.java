@@ -38,7 +38,7 @@ import java.util.Map;
 
 public class MainPage extends AppCompatActivity implements View.OnClickListener {
 
-    CardView ctgProfile, ctgExchange, ctgScience, ctgSports, ctgGaming, ctgHistory, ctgProg, ctgMath, ctgLocation, ctgCalendar, ctgContacts, ctgTheme,ctgleaderboards, ctgSignout;
+    CardView ctgProfile, ctgExchange, ctgScience, ctgSports, ctgGaming, ctgHistory, ctgProg, ctgMath, ctgLocation, ctgContacts, ctgTheme,ctgleaderboards, ctgSignout;
     TextView profile;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -69,7 +69,6 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgProg = findViewById(R.id.cardProg);
         ctgMath = findViewById(R.id.cardMath);
         ctgLocation = findViewById(R.id.cardlocation);
-        ctgCalendar = findViewById(R.id.cardcalendar);
         ctgContacts = findViewById(R.id.cardcontact);
         ctgTheme = findViewById(R.id.theme);
         ctgleaderboards = findViewById(R.id.cardRank);
@@ -86,7 +85,6 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgMath.setCardBackgroundColor(bgcolor);
         ctgLocation.setCardBackgroundColor(bgcolor);
         ctgleaderboards.setCardBackgroundColor(bgcolor);
-        ctgCalendar.setCardBackgroundColor(bgcolor);
         ctgContacts.setCardBackgroundColor(bgcolor);
         ctgTheme.setCardBackgroundColor(bgcolor);
         ctgProg.setCardBackgroundColor(bgcolor);
@@ -103,7 +101,6 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
         ctgMath.setOnClickListener(this);
         ctgLocation.setOnClickListener(this);
         ctgleaderboards.setOnClickListener(this);
-        ctgCalendar.setOnClickListener(this);
         ctgContacts.setOnClickListener(this);
         ctgSignout.setOnClickListener(this);
 
@@ -340,8 +337,6 @@ public class MainPage extends AppCompatActivity implements View.OnClickListener 
             Toast.makeText(this, "Theme has been clicked", Toast.LENGTH_SHORT).show();
         } else if (ctgContacts.getId() == view.getId()) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("content://contacts/people")));
-        } else if (ctgCalendar.getId() == view.getId()) {
-            Toast.makeText(this, "Calendar has been clicked", Toast.LENGTH_SHORT).show();
         } else if (ctgLocation.getId() == view.getId()) {
             Toast.makeText(this, "Location has been clicked", Toast.LENGTH_SHORT).show();
         } else if(ctgleaderboards.getId() == view.getId()) {

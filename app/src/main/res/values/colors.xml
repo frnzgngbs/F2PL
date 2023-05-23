@@ -7,5 +7,5 @@
     <color name="bluetheme">#059EFF</color>
     <color name="green">#00FF00</color>
     <color name="f2plbackground">#FFFEFE</color>
-    <color name ="selectedchoice">#FF8A74</color>
+    <color name ="selectedchoice">#DEDEDE</color>
 </resources>
