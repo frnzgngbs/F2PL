@@ -67,9 +67,6 @@
             android:name=".MPIN_Activity"
             android:exported="false" />
         <activity
-            android:name=".Calender"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
