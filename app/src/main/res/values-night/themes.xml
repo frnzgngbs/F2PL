@@ -1,11 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.F2PL" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/darktheme</item>
+        <item name="colorPrimary">@color/f2plorange</item>
     </style>
 
-    <style name="Theme.F2PL" parent="Base.Theme.F2PL" />
-    <style name="fontColor"></style>
+    <style name="ScreenBackground">
+        <item name="android:background">@color/darktheme</item>
+    </style>
+
+    <style name="CardBackground">
+        <item name="cardBackgroundColor">@color/darktheme</item>
+    </style>
+
+    <style name="textColor">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

@@ -67,7 +67,8 @@
             android:layout_marginTop="320dp"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="LETTER A" />
+            android:text="LETTER A"
+            style="@style/textColor"/>
 
         <Button
             android:id="@+id/B"
@@ -76,7 +77,8 @@
             android:layout_marginTop="10dp"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="LETTER B" />
+            android:text="LETTER B"
+            style="@style/textColor"/>
 
         <Button
             android:id="@+id/C"
@@ -85,7 +87,8 @@
             android:layout_marginTop="10dp"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="LETTER C" />
+            android:text="LETTER C"
+            style="@style/textColor"/>
 
         <Button
             android:id="@+id/D"
@@ -94,7 +97,8 @@
             android:layout_marginTop="10dp"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="LETTER D" />
+            android:text="LETTER D"
+            style="@style/textColor"/>
 
         <Button
             android:layout_width="match_parent"
@@ -103,7 +107,8 @@
             android:text="Submit"
             android:backgroundTint="@color/black"
             android:textSize="20sp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </RelativeLayout>
